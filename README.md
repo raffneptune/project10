@@ -1,2 +1,2 @@
-<h1>web10</h1>
-<a href="https://raffneptune.github.io/web10/index.php" style="color: black; text-decoration: none;">raffneptune.github.io/web10</a>
+<h1>web 10</h1>
+<a href="https://raffneptune.github.io/project10/index.php" style="color: black; text-decoration: none;">tap link</a>
