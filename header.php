@@ -15,23 +15,23 @@ if(isset($message)){
 
     <div class="flex">
 
-        <a href="home.php" class="logo">RaffFlowers</a>
+        <a href="home.php" class="logo">Raff Flowers</a>
 
         <nav class="navbar">
             <ul>
-                <li><a href="home.php">home</a></li>
-                <li><a href="#">pages +</a>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="#">Pages +</a>
                     <ul>
-                        <li><a href="about.php">about</a></li>
-                        <li><a href="contact.php">contact</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </li>
-                <li><a href="shop.php">shop</a></li>
-                <li><a href="orders.php">orders</a></li>
-                <li><a href="#">account +</a>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="#">Account +</a>
                     <ul>
-                        <li><a href="login.php">login</a></li>
-                        <li><a href="register.php">register</a></li>
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="register.php">Register</a></li>
                     </ul>
                 </li>
             </ul>
@@ -54,7 +54,7 @@ if(isset($message)){
         </div>
 
         <div class="account-box">
-            <p>username : <span><?php echo $_SESSION['user_name']; ?></span></p>
+            <p>name : <span><?php echo $_SESSION['user_name']; ?></span></p>
             <p>email : <span><?php echo $_SESSION['user_email']; ?></span></p>
             <a href="logout.php" class="delete-btn">logout</a>
         </div>

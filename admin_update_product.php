@@ -27,16 +27,16 @@ if(isset($_POST['update_product'])){
    
    if(!empty($image)){
       if($image_size > 2000000){
-         $message[] = 'image file size is too large!';
+         $message[] = 'Image File Size Is Too Large!';
       }else{
          mysqli_query($conn, "UPDATE `products` SET image = '$image' WHERE id = '$update_p_id'") or die('query failed');
          move_uploaded_file($image_tmp_name, $image_folter);
          unlink('flowers/'.$old_image);
-         $message[] = 'image updated successfully!';
+         $message[] = 'Image Updated Successfully!';
       }
    }
 
-   $message[] = 'product updated successfully!';
+   $message[] = 'Product Updated Successfully!';
 
 }
 
@@ -48,7 +48,7 @@ if(isset($_POST['update_product'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update product</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

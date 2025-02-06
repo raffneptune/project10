@@ -48,7 +48,8 @@ html{
 }
 
 body{
-   background: var(--light-bg);
+   /* background: var(--light-bg);*/
+   background:url(../images/b&w-home-bg-Photoroom.jpg);
 }
 
 section{

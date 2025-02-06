@@ -23,16 +23,16 @@ if(isset($_POST['add_product'])){
    $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$name'") or die('query failed');
 
    if(mysqli_num_rows($select_product_name) > 0){
-      $message[] = 'product name already exist!';
+      $message[] = 'Product Name Already Exist!';
    }else{
       $insert_product = mysqli_query($conn, "INSERT INTO `products`(name, details, price, image) VALUES('$name', '$details', '$price', '$image')") or die('query failed');
 
       if($insert_product){
          if($image_size > 2000000){
-            $message[] = 'image size is too large!';
+            $message[] = 'Image Size Is Too Large!';
          }else{
             move_uploaded_file($image_tmp_name, $image_folter);
-            $message[] = 'product added successfully!';
+            $message[] = 'Product Added Successfully!';
          }
       }
    }
@@ -60,7 +60,7 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>products</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -79,9 +79,9 @@ if(isset($_GET['delete'])){
 
    <form action="" method="POST" enctype="multipart/form-data">
       <h3>add new product</h3>
-      <input type="text" class="box" required placeholder="enter product name" name="name">
-      <input type="number" min="0" class="box" required placeholder="enter product price" name="price">
-      <textarea name="details" class="box" required placeholder="enter product details" cols="30" rows="10"></textarea>
+      <input type="text" class="box" required placeholder="Enter Product Name" name="name">
+      <input type="number" min="0" class="box" required placeholder="Enter Product Price" name="price">
+      <textarea name="details" class="box" required placeholder="Enter Product Details" cols="30" rows="10"></textarea>
       <input type="file" accept="image/jpg, image/jpeg, image/png" required class="box" name="image">
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>

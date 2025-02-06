@@ -36,7 +36,7 @@ if(isset($_POST['update_quantity'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>shopping cart</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -53,7 +53,7 @@ if(isset($_POST['update_quantity'])){
 
 <section class="heading">
     <h3>shopping cart</h3>
-    <p> <a href="home.php">home</a> / cart </p>
+    <p> <a href="home.php">Home</a> / Cart </p>
 </section>
 
 <section class="shopping-cart">
@@ -95,7 +95,7 @@ if(isset($_POST['update_quantity'])){
     </div>
 
     <div class="cart-total">
-        <p>grand total : <span>$<?php echo $grand_total; ?>/-</span></p>
+        <p>Grand Total : <span>$<?php echo $grand_total; ?>/-</span></p>
         <a href="shop.php" class="option-btn">continue shopping</a>
         <a href="checkout.php" class="btn  <?php echo ($grand_total > 1)?'':'disabled' ?>">proceed to checkout</a>
     </div>

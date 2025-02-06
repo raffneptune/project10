@@ -16,7 +16,7 @@ if(isset($_POST['order'])){
     $number = mysqli_real_escape_string($conn, $_POST['number']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $method = mysqli_real_escape_string($conn, $_POST['method']);
-    $address = mysqli_real_escape_string($conn, 'Address Line: '. $_POST['addressline'].', '. $_POST['subdistrict'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
+    $address = mysqli_real_escape_string($conn, 'Address Line: '. $_POST['addressline'].', '. $_POST['village'].', '. $_POST['subdistrict'].', '. $_POST['city'].', '. $_POST['state'].', '. $_POST['country'].' - '. $_POST['pin_code']);
     $placed_on = date('d-M-Y');
 
     $cart_total = 0;
@@ -36,13 +36,13 @@ if(isset($_POST['order'])){
     $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
 
     if($cart_total == 0){
-        $message[] = 'your cart is empty!';
+        $message[] = 'Your Cart Is Empty!';
     }elseif(mysqli_num_rows($order_query) > 0){
-        $message[] = 'order placed already!';
+        $message[] = 'Order Placed Already!';
     }else{
         mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
         mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-        $message[] = 'order placed successfully!';
+        $message[] = 'Order Placed Successfully!';
     }
 }
 
@@ -54,7 +54,7 @@ if(isset($_POST['order'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>checkout</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -71,7 +71,7 @@ if(isset($_POST['order'])){
 
 <section class="heading">
     <h3>checkout order</h3>
-    <p> <a href="home.php">home</a> / checkout </p>
+    <p> <a href="home.php">Home</a> / Checkout </p>
 </section>
 
 <section class="display-order">
@@ -90,7 +90,7 @@ if(isset($_POST['order'])){
             echo '<p class="empty">your cart is empty</p>';
         }
     ?>
-    <div class="grand-total">grand total : <span>$<?php echo $grand_total; ?>/-</span></div>
+    <div class="grand-total">Grand Total : <span>$<?php echo $grand_total; ?>/-</span></div>
 </section>
 
 <section class="checkout">
@@ -115,15 +115,19 @@ if(isset($_POST['order'])){
             <div class="inputBox">
                 <span>Payment Method :</span>
                 <select name="method">
-                    <option value="cash on delivery">Cash On Delivery</option>
-                    <option value="credit card">Credit Card</option>
-                    <option value="gopay">Gopay</option>
-                    <option value="dana">Dana</option>
+                    <option value="Cash On Delivery">Cash On Delivery</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Gopay">Gopay</option>
+                    <option value="Dana">Dana</option>
                 </select>
             </div>
             <div class="inputBox">
                 <span>Address Line :</span>
-                <input type="text" name="addressline" placeholder="e.g. Address Line">
+                <input type="text" name="addressline" placeholder="e.g. Jl. Jenderal Sudirman No.1, RT.1/RW.3">
+            </div>
+            <div class="inputBox">
+                <span>Village :</span>
+                <input type="text" name="village" placeholder="e.g. Gelora">
             </div>
             <div class="inputBox">
                 <span>Subdistrict :</span>
@@ -135,7 +139,7 @@ if(isset($_POST['order'])){
             </div>
             <div class="inputBox">
                 <span>State :</span>
-                <input type="text" name="state" placeholder="e.g. DKI Jakarta">
+                <input type="text" name="state" placeholder="e.g. Jakarta Raya">
             </div>
             <div class="inputBox">
                 <span>Country :</span>

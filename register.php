@@ -16,13 +16,13 @@ if(isset($_POST['submit'])){
    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
 
    if(mysqli_num_rows($select_users) > 0){
-      $message[] = 'user already exist!';
+      $message[] = 'User Already Exist!';
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
+         $message[] = 'Confirm Password Not Matched!';
       }else{
          mysqli_query($conn, "INSERT INTO `users`(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
-         $message[] = 'registered successfully!';
+         $message[] = 'Registered Successfully!';
          header('location:login.php');
       }
    }
@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -67,12 +67,12 @@ if(isset($message)){
 
    <form action="" method="post">
       <h3>register now</h3>
-      <input type="text" name="name" class="box" placeholder="enter your username" required>
-      <input type="email" name="email" class="box" placeholder="enter your email" required>
-      <input type="password" name="pass" class="box" placeholder="enter your password" required>
-      <input type="password" name="cpass" class="box" placeholder="confirm your password" required>
+      <input type="text" name="name" class="box" placeholder="Enter Your Name" required>
+      <input type="email" name="email" class="box" placeholder="Enter Your Email" required>
+      <input type="password" name="pass" class="box" placeholder="Enter Your Password" required>
+      <input type="password" name="cpass" class="box" placeholder="Confirm Your Password" required>
       <input type="submit" class="btn" name="submit" value="register now">
-      <p>already have an account? <a href="login.php">login now</a></p>
+      <p>Already Have An Account? <a href="login.php">Login N  ow</a></p>
    </form>
 
 </section>

@@ -14,7 +14,7 @@ if(isset($_POST['update_order'])){
    $order_id = $_POST['order_id'];
    $update_payment = $_POST['update_payment'];
    mysqli_query($conn, "UPDATE `orders` SET payment_status = '$update_payment' WHERE id = '$order_id'") or die('query failed');
-   $message[] = 'payment status has been updated!';
+   $message[] = 'Payment Status Has Been Updated!';
 }
 
 if(isset($_GET['delete'])){
@@ -31,7 +31,7 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
+   <title>Raff | Flowers</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -59,15 +59,15 @@ if(isset($_GET['delete'])){
          while($fetch_orders = mysqli_fetch_assoc($select_orders)){
       ?>
       <div class="box">
-         <p> user id : <span><?php echo $fetch_orders['user_id']; ?></span> </p>
-         <p> placed on : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
-         <p> name : <span><?php echo $fetch_orders['name']; ?></span> </p>
-         <p> number : <span><?php echo $fetch_orders['number']; ?></span> </p>
-         <p> email : <span><?php echo $fetch_orders['email']; ?></span> </p>
-         <p> address : <span><?php echo $fetch_orders['address']; ?></span> </p>
-         <p> total products : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-         <p> total price : <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
-         <p> payment method : <span><?php echo $fetch_orders['method']; ?></span> </p>
+         <p> User Id : <span><?php echo $fetch_orders['user_id']; ?></span> </p>
+         <p> Placed On : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
+         <p> Name : <span><?php echo $fetch_orders['name']; ?></span> </p>
+         <p> Number : <span><?php echo $fetch_orders['number']; ?></span> </p>
+         <p> Email : <span><?php echo $fetch_orders['email']; ?></span> </p>
+         <p> Address : <span><?php echo $fetch_orders['address']; ?></span> </p>
+         <p> Total Products : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
+         <p> Total Price : <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+         <p> Payment Method : <span><?php echo $fetch_orders['method']; ?></span> </p>
          <form action="" method="post">
             <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
             <select name="update_payment">
@@ -82,7 +82,7 @@ if(isset($_GET['delete'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no orders placed yet!</p>';
+         echo '<p class="empty">No Orders Placed Yet!</p>';
       }
       ?>
    </div>
